@@ -14,8 +14,9 @@ use App\Http\Controllers\TodoListController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [TodoListController::class,'index']);
+Route::post('/markCompleteRoute/{id}', [TodoListController::class,'markComplete'])->name('markComplete');
+Route::post('/markDeleteRoute/{id}', [TodoListController::class,'markDelete'])->name('markDelete');
+
 Route::post('/saveItemRoute', [TodoListController::class,'saveItem'])->name('saveItem');
 
