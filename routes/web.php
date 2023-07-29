@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoListController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,11 @@ Route::post('/markCompleteRoute/{id}', [TodoListController::class,'markComplete'
 Route::post('/markDeleteRoute/{id}', [TodoListController::class,'markDelete'])->name('markDelete');
 
 Route::post('/saveItemRoute', [TodoListController::class,'saveItem'])->name('saveItem');
+
+Route::get('/login', [UserController::class,'loginmethod'])->name('loginmethod');
+
+Route::post('/loginOrRegister', [UserController::class,'get_loginCredentials'])->name('loginOrRegister');
+
+Route::get('/home', [UserController::class, 'home_view'])->name('home_view');
+Route::get('/register', [UserController::class, 'Register'])->name('register');
 
